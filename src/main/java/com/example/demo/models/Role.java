@@ -1,12 +1,7 @@
 package com.example.demo.models;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
-
+import jakarta.persistence.*;
+@Entity
+@Table(name = "roles")
 public class Role {
 
     @Id
@@ -14,10 +9,12 @@ public class Role {
     @Column(name = "id")
     private int id;
 
-    @Setter
-    @Getter
     @Column(name = "name")
     private String name;
+
+    public Role() {
+
+    }
 
     public Role(String name) {
         this.name = name;
