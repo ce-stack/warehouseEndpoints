@@ -1,28 +1,35 @@
 package com.example.demo.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "products")
 public class Product {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "sku" ,unique = true)
     private String sku;
 
+    @Column(name = "barcode" , unique = true)
     private String barcode;
 
+    @Column(name = "description")
     private String description;
 
+    @Column(name = "unit")
     private String unit;
 
+    @Column(name = "storageType")
     private String storageType;
 
+    @Column(name = "active")
     private boolean active;
 
     @ManyToOne
@@ -119,7 +126,6 @@ public class Product {
                 ", unit='" + unit + '\'' +
                 ", storageType='" + storageType + '\'' +
                 ", active=" + active +
-                ", category=" + category +
                 '}';
     }
 }
